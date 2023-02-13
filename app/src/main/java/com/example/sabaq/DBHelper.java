@@ -116,4 +116,45 @@ public class DBHelper extends SQLiteOpenHelper {
         Sabaq_cursor.close();
         return SabaqArrayList;
     }
+    public StudentSabaqModel getStudentsbaq(int i) {
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor Sabaq_cursor = db.rawQuery("SELECT * FROM " + Sabaq_TABLE + " WHERE Student_ID " + "=" + i , null);
+
+       StudentSabaqModel SabaqData = new StudentSabaqModel();
+
+        // moving our cursor to first position.
+        if (Sabaq_cursor.moveToFirst()) {
+            do {
+                   SabaqData.setSabaqParaNo(Sabaq_cursor.getInt(1));
+                   SabaqData.setSabqiParaNo(Sabaq_cursor.getInt(2));
+                   SabaqData.setManzilParaNo(Sabaq_cursor.getInt(3));
+
+            } while (Sabaq_cursor.moveToNext());
+
+        }
+        Sabaq_cursor.close();
+        return SabaqData;
+    }
+    public void UpdateSSabaq(StudentSabaqModel Student_Data){
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        //Hash map, as we did in bundles
+
+        ContentValues cv= new ContentValues();
+
+        //Cursor Sabaq_cursor = db.rawQuery(" UPDATE " + Sabaq_TABLE + " SET " + Student_Sabaq + " = " + Student_Data.getSabaqParaNo() +Student_Sabqi + " = "+ Student_Data.getSabqiParaNo()+ Student_Manzil+ " = " +Student_Data.getManzilParaNo() + " WHERE Student_ID " + "=" + Student_Data.getId(), null);
+
+        cv.put(Student_Sabaq, Student_Data.getSabaqParaNo());
+        cv.put(Student_Sabqi, Student_Data.getSabqiParaNo());
+        cv.put(Student_Manzil, Student_Data.getManzilParaNo());
+
+        String whereclause = "Student_ID = ?";
+        String[] whereargs = {String.valueOf(Student_Data.getId())};
+        db.update(Sabaq_TABLE, cv, whereclause,whereargs);
+
+        db.close();
+    }
+
 }

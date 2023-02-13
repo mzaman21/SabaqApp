@@ -2,6 +2,7 @@ package com.example.sabaq;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
         SList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                Intent SingleStudentActivity = new Intent(MainActivity.this,MainActivity3.class);
+                SingleStudentActivity.putExtra("Selected_Option", i);
+                MainActivity.this.startActivity(SingleStudentActivity);
 
             }
         });
