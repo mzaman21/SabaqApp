@@ -119,8 +119,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public StudentSabaqModel getStudentsbaq(int i) {
 
         SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM StudentSabaq WHERE SutdentID ="+i+"";
 
-        Cursor Sabaq_cursor = db.rawQuery("SELECT * FROM " + Sabaq_TABLE + " WHERE Student_ID " + "=" + i , null);
+        Cursor Sabaq_cursor = db.rawQuery(query, null);
 
        StudentSabaqModel SabaqData = new StudentSabaqModel();
 

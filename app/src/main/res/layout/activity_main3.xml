@@ -51,10 +51,9 @@
         android:id="@+id/Recordbtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="33dp"
+        android:layout_marginStart="16dp"
         android:text="All Students Sabaq"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBaseline_toBaselineOf="@+id/AddNew"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -112,5 +111,15 @@
         android:text="Update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/Umanzil" />
+
+    <Button
+        android:id="@+id/AddNew"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginBottom="36dp"
+        android:text="Add New Record"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintStart_toEndOf="@+id/Recordbtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

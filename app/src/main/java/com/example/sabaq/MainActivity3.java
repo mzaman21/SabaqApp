@@ -14,7 +14,7 @@ public class MainActivity3 extends AppCompatActivity {
     int selectedStudent;
     EditText USabaq,USbqi,UManzil;
     TextView CSabq,CSbqi,CManzil;
-    Button RBtn, UBtn;
+    Button RBtn, UBtn, ABtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +38,7 @@ public class MainActivity3 extends AppCompatActivity {
 
         RBtn = findViewById(R.id.Recordbtn);
         UBtn = findViewById(R.id.Updatebtn);
+        ABtn = findViewById(R.id.AddNew);
 
         Current_Student = Student_Db.getStudentsbaq(selectedStudent);
 
@@ -53,6 +54,14 @@ public class MainActivity3 extends AppCompatActivity {
             }
         });
 
+        ABtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent SingleStudentActivity = new Intent(MainActivity3.this,MainActivity4.class);
+                SingleStudentActivity.putExtra("Selected_Option", selectedStudent);
+                MainActivity3.this.startActivity(SingleStudentActivity);
+            }
+        });
         UBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
