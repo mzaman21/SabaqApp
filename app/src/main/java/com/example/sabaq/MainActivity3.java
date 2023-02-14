@@ -1,7 +1,11 @@
 package com.example.sabaq;
 
+import static com.example.sabaq.R.color.grey;
+
+import androidx.annotation.ColorInt;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -16,6 +20,7 @@ public class MainActivity3 extends AppCompatActivity {
     TextView CSabq,CSbqi,CManzil;
     Button RBtn, UBtn, ABtn;
 
+    @SuppressLint("ResourceAsColor")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,10 +51,13 @@ public class MainActivity3 extends AppCompatActivity {
             CSabq.setText("None");
             CSbqi.setText("None");
             CManzil.setText("None");
-            ABtn.setEnabled(false);
+            ABtn.setEnabled(true);
+            UBtn.setEnabled(false);
+            UBtn.setBackgroundColor(grey);
         }
         else {
-            ABtn.setEnabled(true);
+            ABtn.setEnabled(false);
+            ABtn.setBackgroundColor(grey);
             CSabq.setText(String.valueOf(Current_Student.getSabaqParaNo()));
             CSbqi.setText(String.valueOf(Current_Student.getSabqiParaNo()));
             CManzil.setText(String.valueOf(Current_Student.getManzilParaNo()));
@@ -80,6 +88,8 @@ public class MainActivity3 extends AppCompatActivity {
               UpdateSsabq.setManzilParaNo(Integer.parseInt(UManzil.getText().toString()));
               Student_Db.UpdateSSabaq(UpdateSsabq);
               UBtn.setText("Sabaq Is Updated");
+              Intent SingleStudentActivity = new Intent(MainActivity3.this,MainActivity2.class);
+              MainActivity3.this.startActivity(SingleStudentActivity);
             }
         });
 

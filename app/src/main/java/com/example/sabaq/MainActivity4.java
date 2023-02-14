@@ -37,6 +37,8 @@ public class MainActivity4 extends AppCompatActivity {
                 AddNewSsabq.setManzilParaNo(Integer.parseInt(NManzil.getText().toString()));
                 Student_Db.addSSabaq(AddNewSsabq);
                 ABtn.setText("Sabaq Is Added");
+                Intent SingleStudentActivity = new Intent(MainActivity4.this,MainActivity3.class);
+                MainActivity4.this.startActivity(SingleStudentActivity);
 
             }
         });
