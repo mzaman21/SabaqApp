@@ -30,12 +30,14 @@ public class MainActivity4 extends AppCompatActivity {
         ABtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                StudentSabaqModel UpdateSsabq = new StudentSabaqModel();
-                UpdateSsabq.setId(selectedStudent);
-                UpdateSsabq.setSabaqParaNo(Integer.parseInt(NSabaq.getText().toString()));
-                UpdateSsabq.setSabqiParaNo(Integer.parseInt(NSbqi.getText().toString()));
-                UpdateSsabq.setManzilParaNo(Integer.parseInt(NManzil.getText().toString()));
+                StudentSabaqModel AddNewSsabq = new StudentSabaqModel();
+                AddNewSsabq.setId(selectedStudent);
+                AddNewSsabq.setSabaqParaNo(Integer.parseInt(NSabaq.getText().toString()));
+                AddNewSsabq.setSabqiParaNo(Integer.parseInt(NSbqi.getText().toString()));
+                AddNewSsabq.setManzilParaNo(Integer.parseInt(NManzil.getText().toString()));
+                Student_Db.addSSabaq(AddNewSsabq);
                 ABtn.setText("Sabaq Is Added");
+
             }
         });
 

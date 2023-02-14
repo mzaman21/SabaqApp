@@ -151,7 +151,7 @@ public class DBHelper extends SQLiteOpenHelper {
         cv.put(Student_Sabqi, Student_Data.getSabqiParaNo());
         cv.put(Student_Manzil, Student_Data.getManzilParaNo());
 
-        String whereclause = "Student_ID = ?";
+        String whereclause = "SutdentID = ?";
         String[] whereargs = {String.valueOf(Student_Data.getId())};
         db.update(Sabaq_TABLE, cv, whereclause,whereargs);
 

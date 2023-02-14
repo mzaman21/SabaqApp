@@ -122,4 +122,32 @@
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/Recordbtn" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Sabaq"
+        app:layout_constraintBottom_toTopOf="@+id/Csbaq"
+        app:layout_constraintEnd_toEndOf="@+id/Csbaq" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="Sabqi"
+        app:layout_constraintBottom_toTopOf="@+id/Csbaqi"
+        app:layout_constraintEnd_toEndOf="@+id/Csbaqi" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="16dp"
+        android:text="Manzil"
+        app:layout_constraintBottom_toTopOf="@+id/Cmanzil"
+        app:layout_constraintEnd_toEndOf="@+id/Cmanzil" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

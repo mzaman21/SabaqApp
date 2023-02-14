@@ -42,10 +42,18 @@ public class MainActivity3 extends AppCompatActivity {
 
         Current_Student = Student_Db.getStudentsbaq(selectedStudent);
 
-        CSabq.setText(String.valueOf(Current_Student.getSabaqParaNo()));
-        CSbqi.setText(String.valueOf(Current_Student.getSabqiParaNo()));
-        CManzil.setText(String.valueOf(Current_Student.getManzilParaNo()));
-
+        if(Current_Student.getSabaqParaNo()==0){
+            CSabq.setText("None");
+            CSbqi.setText("None");
+            CManzil.setText("None");
+            ABtn.setEnabled(false);
+        }
+        else {
+            ABtn.setEnabled(true);
+            CSabq.setText(String.valueOf(Current_Student.getSabaqParaNo()));
+            CSbqi.setText(String.valueOf(Current_Student.getSabqiParaNo()));
+            CManzil.setText(String.valueOf(Current_Student.getManzilParaNo()));
+        }
         RBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,7 +78,7 @@ public class MainActivity3 extends AppCompatActivity {
               UpdateSsabq.setSabaqParaNo(Integer.parseInt(USabaq.getText().toString()));
               UpdateSsabq.setSabqiParaNo(Integer.parseInt(USbqi.getText().toString()));
               UpdateSsabq.setManzilParaNo(Integer.parseInt(UManzil.getText().toString()));
-
+              Student_Db.UpdateSSabaq(UpdateSsabq);
               UBtn.setText("Sabaq Is Updated");
             }
         });
